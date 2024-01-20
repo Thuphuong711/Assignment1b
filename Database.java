@@ -11,6 +11,7 @@ public class Database
         storage = new ArrayList<Person>();
     }
     
+    //used for addPerson method
     public int add(final Person person)
     {
         storage.add(person);
@@ -18,6 +19,8 @@ public class Database
         return (storage.size() - 1);
     }
     
+    //not sure what to do with this?
+    //maybe for display all method
     public Person[] getAll()
     {
         final Person[] copy;
@@ -28,6 +31,7 @@ public class Database
         return (copy);
     }
     
+    //remove method
     public Person removeByName(final String name)
     {
         final Person person;
@@ -47,6 +51,7 @@ public class Database
         return (person);
     }
     
+    //find and return a Person
     public Person findByName(final String name)
     {
         final Person person;
@@ -66,6 +71,7 @@ public class Database
         return (person);
     }
     
+    //find by name
     private int lookupByName(final String name)
     {
         int location;
