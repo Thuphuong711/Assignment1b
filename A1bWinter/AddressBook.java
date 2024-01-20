@@ -26,7 +26,6 @@ public class AddressBook
     {
     	Person person = ui.readPerson();
     	database.add(person);
-    	
     }
 
     /**
@@ -37,7 +36,6 @@ public class AddressBook
     {
     	String name = ui.readName();
     	if (this.remove(name)) {
-//    		database.removeByName(name);
     		ui.displayMsg(name + " was deleted successfully");
     	} else {
     		ui.displayErrorMsg("Could not delete " + name );
@@ -101,12 +99,22 @@ public class AddressBook
     	}
     }
 
+
+    /*I asked you about why this display() method has private access modifier.
+      I see the display() method in ConsoleUI class, but because this display() method in AddressBook class
+      is private, so I cannot call this method in ConsoleUI class */
+
+     /* Moreover, I don't really understand why we still need display() method in ConsoleUI class, for what purpose?
+     If we want to search the name of a person, we just need to call findPerson class via AddressBook object(named book),
+     I wonder why we still need display() and displayAll() method in ConsoleUI class as we can call these methods from AddressBook class,
+     I feel it like redundancy?/
+     
     
     /**
      * displays the requested person on the user interface
      * @param person
      */
-    public void display(final Person person)
+    private void display(final Person person)
     {
     	System.out.printf("%-20s%-15s%n","Name","PhoneNumber");
     	Person found = database.findByName(person.getName());
