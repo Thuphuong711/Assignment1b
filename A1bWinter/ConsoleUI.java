@@ -67,15 +67,28 @@ public class ConsoleUI implements UI
 	
     //displays a single Person’s data
 	//display is private
+
+	//Question here:
+	// I don't understand why we need display() and displayAll() method in this ConsoleUI
+	// We have already had these two methods in AddressBook class?
+
+	// Idea 1: make display() method in AddressBook class has public access modifier
+	// @Override
+	// public void display(Person person) {
+	// 	// TODO Auto-generated method stub
+	// 	addressBook.display(person);
+	// }
+
+	// Idea2: instead of calling display() method in AddressBook class and change it to public access modifier
+	// I call findPerson method 
 	@Override
 	public void display(Person person) {
-		// TODO Auto-generated method stub
-		addressBook.display(person);
+		addressBook.findPerson();
 	}
 	
-	
+
 	//displays all people in the database
-	// why add parameter to this method
+	// Question: why add parameter to this method
 	@Override
 	public void displayAll(Person[] people) {
 		// TODO Auto-generated method stub
@@ -84,7 +97,7 @@ public class ConsoleUI implements UI
 	
 
 	//displays the available menu
-	//this mean use the displayMsg() method?
+	//this mean using the displayMsg() method?
 	public void displayMenu() {	
 		displayMsg("1) Add");
 		displayMsg("2) Delete");
